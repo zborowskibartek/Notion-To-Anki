@@ -25,6 +25,7 @@ public class FlashCardService {
     private static final String QUESTION_CELL_NAME = "cell-title";
     private static final String ANSWER_CELL_NAME = "cell-d|mU";
     private static final String FILE_PATH = "data/Dictionary 30cae5936b354243bf40837c0e0bc324.html";
+    private static final String DECK_NAME = "test";
 
     public void run() throws IOException, URISyntaxException {
         List<FlashCard> flashCards = getFlashCardsFromExportedFile(QUESTION_CELL_NAME, ANSWER_CELL_NAME, FILE_PATH);
@@ -77,9 +78,9 @@ public class FlashCardService {
 
     private  FlashCardPojo getFlashCardPojo(FlashCard flashCard) {
         return new FlashCardPojo("addNote", 6,
-                new Params(new Note("test",
+                new Params(new Note(DECK_NAME,
                         "Basic (and reversed card)",
                         new Fields(flashCard.getQuestion(), flashCard.getAnswer()),
-                        new Options(false, "deck", new DuplicateScopeOptions("test", false)))));
+                        new Options(false, "deck", new DuplicateScopeOptions(DECK_NAME, false)))));
     }
 }
