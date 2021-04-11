@@ -22,37 +22,43 @@ import java.util.List;
 
 public class FlashCardService {
 
-    public static void main(String[] args) throws IOException, URISyntaxException {
+    private static final String QUESTION_CELL_NAME = "cell-title";
+    private static final String ANSWER_CELL_NAME = "cell-d|mU";
+    private static final String FILE_PATH = "data/Dictionary 30cae5936b354243bf40837c0e0bc324.html";
 
+    public void run() throws IOException, URISyntaxException {
+        List<FlashCard> flashCards = getFlashCardsFromExportedFile(QUESTION_CELL_NAME, ANSWER_CELL_NAME, FILE_PATH);
+        HttpEntityEnclosingRequestBase httpEntity = provideHttpEntity();
+        putFlashCardsToAnki(flashCards, httpEntity);
+    }
+
+    private List<FlashCard> getFlashCardsFromExportedFile(String questionCellName, String answerCellName, String filePath) throws IOException {
         List<FlashCard> flashCardList = new ArrayList<>();
-        Document doc = Jsoup.parse(new File("data/Dictionary 30cae5936b354243bf40837c0e0bc324.html"), "UTF-8");
+        Document doc = Jsoup.parse(new File(filePath), "UTF-8");
         Elements table = doc.select(".collection-content tr");
-        int index = 0;
-
         for (Element el : table) {
-            String answer = el.getElementsByClass("cell-d|mU").text();
+            String answer = el.getElementsByClass(answerCellName).text();
             if (el.getElementsByClass("cell-vozL").select("div.checkbox.checkbox-off").first() == null || answer.isEmpty()) {
                 continue;
             }
-            String question = el.getElementsByClass("cell-title").text();
-            System.out.println(question + " === " + answer);
-
+            String question = el.getElementsByClass(questionCellName).text();
             flashCardList.add(new FlashCard(question, answer));
-            index++;
         }
-        System.out.println(index);
-        HttpEntityEnclosingRequestBase httpEntity = new HttpEntityEnclosingRequestBase() {
+        return flashCardList;
+    }
+
+    private HttpEntityEnclosingRequestBase provideHttpEntity() {
+        return new HttpEntityEnclosingRequestBase() {
             @Override
             public String getMethod() {
                 return HttpMethod.POST.name();
             }
         };
-        for (FlashCard flashCard : flashCardList) {
-            FlashCardPojo flashCardPojo = new FlashCardPojo("addNote", 6,
-                    new Params(new Note("tst",
-                            "Basic (and reversed card)",
-                            new Fields(flashCard.getQuestion(), flashCard.getAnswer()),
-                            new Options(false, "deck", new DuplicateScopeOptions("tst", false)))));
+    }
+
+    private void putFlashCardsToAnki(List<FlashCard> flashCards, HttpEntityEnclosingRequestBase httpEntity) throws URISyntaxException, IOException {
+        for (FlashCard flashCard : flashCards) {
+            FlashCardPojo flashCardPojo = getFlashCardPojo(flashCard);
             Gson gson = new Gson();
             String jsonString = gson.toJson(flashCardPojo);
             URI uri = new URI("http://localhost:8765/");
@@ -67,5 +73,13 @@ public class FlashCardService {
             System.out.println();
             System.out.println(responseString);
         }
+    }
+
+    private  FlashCardPojo getFlashCardPojo(FlashCard flashCard) {
+        return new FlashCardPojo("addNote", 6,
+                new Params(new Note("test",
+                        "Basic (and reversed card)",
+                        new Fields(flashCard.getQuestion(), flashCard.getAnswer()),
+                        new Options(false, "deck", new DuplicateScopeOptions("test", false)))));
     }
 }
