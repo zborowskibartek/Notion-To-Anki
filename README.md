@@ -1,44 +1,26 @@
-# Info
+# Notion To Anki
 
- Simple project to help creating flashcards, due to connect two Apps Notion and Anki. Recently based on exported file from Notion (*.html) and desktop version of Anki. Curently I am waiting for open Notion API to provide direct communication between Notion "databses" and Anki PC app.
+## 🗒️ Overview
 
-## Pre-requisites
+The project is implemented mainly for learning purposes and to speed up the process of creating flashcards. As a big fan of the Notion and Anki apps, I decided to do it in a more convenient way. For now, importing cards from Notion databases into the Anki decks is done via HTTP communication.
 
-- Anki (desktop version, with plugin Anki Connect)
-- You should be familiar with Notion app (simple knowledge about its "databases")
-- Exported file from Notion (page should be based on Notion databases, more details below)
+## ⚠️ Remarks
 
+- *Notion* → due to the fact that the official Notion API has not been implemented yet, currently communication takes place from the exported `*.html` file. Full **instruction** on how to properly download the file is provided **below**.
+- *Anki* → since Anki do not support communication via web browser . Hence, you are obligated to download desktop version and install predefined plugin to be able to send data to your account. As before entire information about it is listed beneath.
 
-## Getting Started
+## ⚙️ Installation
 
-Clone repo straightforward to destination directory and open through your IDE. The communication between app and Anki goes through HTTP on http://localhost:8765/. You are obligated to provide question and answer cell name from exported file to perform appropirate parsing to Java object.
+Let's go through the following steps to get the application running. Additionally, make sure that you have free two local ports `8080` and `8765`:
 
-Step by step to prepare exported file and find cell names:
+- Clone the project:
 
-- Create simple database
+`git clone https://github.com/zborowskibartek/Notion-To-Anki.git`
 
-![https://i.ibb.co/4jHJLBd/Screenshot-2021-04-11-13-31-26.jpg](https://i.ibb.co/4jHJLBd/Screenshot-2021-04-11-13-31-26.jpg)
+- Build and run application:
 
-- Export file to HTML
+`gradle bootRun`
 
-![https://i.ibb.co/tzNZRxZ/Screenshot-2021-04-11-13-47-48.jpg](https://i.ibb.co/tzNZRxZ/Screenshot-2021-04-11-13-47-48.jpg)
+## ☄️ **Getting Started**
 
-- Open file in browser and open tools for developers (then find cell names as below)
-
-![https://i.ibb.co/VghT4Lx/Screenshot-2021-04-11-13-50-19.jpg](https://i.ibb.co/VghT4Lx/Screenshot-2021-04-11-13-50-19.jpg)
-
-After all, open Anki app and create destination deck (as before, set new deck name in source code -> static variable).
-
-## ⌨️ Technology Stack
-
-The project uses the following libraries:
-
-- **Lombok**
-- **Gson**
-- **PostgreSQL**
-- **ApacheHttp Client**
-- **JSoup**
-
-## ⚠️ Project Status
-
-Currently perform communication between exported file from Notion to desktop version of Anki. I am signed up for the beta test of Notion API, to ensure connection via HTTP.
+...
