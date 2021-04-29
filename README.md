@@ -52,7 +52,8 @@ JSON **body**:
 |"questionColumn"  |"daasda"                         |class name of cell storing question                  |question colmn id       |
 |"answerColumn"    |"daasda"                         |class name of cell storing answer                    |answer column id        |
 |"table"           |"Dictionary.html"                |exported .html file name                             |table id                |
-- * will be valid after the introduction of full communication over HTTP
+- *will be valid after the introduction of full communication over HTTP
+
 ## 🛠️ Manual (will be deprecated when Notion open its API)
 
 - Export **table** or **page with nested table** (but with only one table inside particular Notion page)
