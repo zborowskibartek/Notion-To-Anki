@@ -7,7 +7,7 @@ The project is implemented mainly for learning purposes and to speed up the proc
 ## ⚠️ Remarks
 
 - *Notion* → due to fact that the official Notion API has not been implemented yet, currently communication takes place from the exported `*.html` file. Full **instruction** on how to properly download the file is provided **below**.
-- *Anki* → since Anki do not support communication via web browser . Hence, you are obligated to download desktop version and install predefined plugin to be able to send data to your account. As before entire **information** about it is listed **beneath**.
+- *Anki* → since Anki do not support communication via web browser. Hence, you are obligated to [download desktop version](https://apps.ankiweb.net/) and install predefined plugin to be able to send data to your account. As before entire **information** about it is listed **beneath**.
 
 ## ⚙️ Installation
 
@@ -52,7 +52,7 @@ JSON **body**:
 |"questionColumn"  |"daasda"                         |class name of cell storing question                  |question colmn id       |
 |"answerColumn"    |"daasda"                         |class name of cell storing answer                    |answer column id        |
 |"table"           |"Dictionary.html"                |exported .html file name                             |table id                |
-- *will be valid after the introduction of full communication over HTTP
+- *will be available soon, when Notion start their official API
 
 ## 🛠️ Manual (will be deprecated when Notion open its API)
 
@@ -66,7 +66,13 @@ JSON **body**:
 
 ![https://i.ibb.co/znQkSPb/Manula-Notion-To-Anki-03-1.jpg](https://i.ibb.co/znQkSPb/Manula-Notion-To-Anki-03-1.jpg)
 
-- Fulfill **request body** with appropriate values (for keys: `"questionColumn"`, `"answerColumn"`) and POST request :)
+- Fulfill **request body** with appropriate values (for keys: `"questionColumn"`, `"answerColumn"`)
+
+- Download AnkiConnect plugin. Follow arrows and fetch add-on with using code 2055492159 (updated 2021-30-04)
+
+![https://i.ibb.co/k8mFFyX/Manula-Notion-To-Anki-04.jpg](https://i.ibb.co/k8mFFyX/Manula-Notion-To-Anki-04.jpg)
+
+- Finally open Anki, run program, complement body request, and send POST request on `http://localhost:8080/flashcards/transfer` endpoint :)
 
 ## **⌨️ Technology Stack**
 
