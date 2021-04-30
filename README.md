@@ -72,7 +72,7 @@ JSON **body**:
 
 ![https://i.ibb.co/k8mFFyX/Manula-Notion-To-Anki-04.jpg](https://i.ibb.co/k8mFFyX/Manula-Notion-To-Anki-04.jpg)
 
-- Finally open Anki, run program, complement body request, and send POST request on `http://localhost:8080/flashcards/transfer` endpoint :)
+- Finally, open Anki, run the program, complement the body and send a POST request :)
 
 ## **⌨️ Technology Stack**
 
