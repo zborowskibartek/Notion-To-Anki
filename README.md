@@ -17,7 +17,7 @@ To start the application, follow the steps below. Additionally, make sure that y
 
 `git clone https://github.com/zborowskibartek/Notion-To-Anki.git`
 
-- Build and run application:
+- Move into **Notion-To-Anki** directory and run application:
 
 `./gradlew bootRun`
 
@@ -56,7 +56,7 @@ JSON **body**:
 
 ## 🛠️ Manual (will be deprecated when Notion open its API)
 
-- Export **table** or **page with nested table** (but with only one table inside particular Notion page)
+- Export **table** or **page with nested table** (but with only one table inside particular Notion page). **Remember** save file inside **Notion-To-Anki** directory!
 
 ![https://i.ibb.co/hZBdtNm/Manula-Notion-To-Anki-01.jpg](https://i.ibb.co/hZBdtNm/Manula-Notion-To-Anki-01.jpg)
 
