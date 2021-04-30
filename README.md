@@ -19,7 +19,7 @@ To start the application, follow the steps below. Additionally, make sure that y
 
 - Build and run application:
 
-`gradle bootRun`
+`./gradlew bootRun`
 
 ## ☄️ **Getting Started**
 
