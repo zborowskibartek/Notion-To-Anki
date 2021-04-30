@@ -1,8 +1,5 @@
 package com.zborowski.bartek.flashcard.domain
 
-import org.springframework.stereotype.Service
-
-@Service
 class FlashCardService(
         private val flashCardProvider: FlashCardProvider,
         private val flashCardPublisher: FlashCardPublisher) {

@@ -5,11 +5,9 @@ import com.zborowski.bartek.flashcard.domain.DeckDetails
 import com.zborowski.bartek.flashcard.domain.FlashCard
 import com.zborowski.bartek.flashcard.domain.FlashCardPublisher
 import flashcard.infrastructure.client.anki.dto.*
-import org.springframework.stereotype.Service
 import org.springframework.web.client.RestTemplate
 
-@Service
-class AnkiFlashCardPublisher(private val restTemplate: RestTemplate = RestTemplate(), private val gson: Gson = Gson()) : FlashCardPublisher {
+class AnkiFlashCardPublisher(private val restTemplate: RestTemplate, private val gson: Gson) : FlashCardPublisher {
 
     companion object {
         private const val ACTION_TYPE = "addNote"
