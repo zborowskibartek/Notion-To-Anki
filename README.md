@@ -82,4 +82,6 @@ JSON **body**:
 
 ## 🗻 **Future Improvements**
 
-I have been enrolled since the end of 2020 for beta test Notion public API, but unfortunately I am still waiting to access it. I hope they will release it soon. Thanks of that, I'm going to provide communication via user account and its nested databases via HTTP not only from exported file.
+I am enrolled in beta testing of Notion's public API since the end of 2020, but unfortunately I am still waiting to access it. I hope they will release it soon. Thanks to this, I will ensure a full communication between the Notion account and Anki Desktop via HTTP requests :)
+
+Thanks, Bartek
