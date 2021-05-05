@@ -49,8 +49,8 @@ JSON **body**:
 |                  |"Basic (and reversed card)"      |flashcard type - Q&A and A&Q                         |                        |
 |"allowDuplicate"  |false                            |disable add duplicates - check entire collection     |                        |
 |                  |true                             |enable add duplicates - check entire collection      |                        |
-|"questionColumn"  |"daasda"                         |class name of cell storing question                  |question colmn id       |
-|"answerColumn"    |"daasda"                         |class name of cell storing answer                    |answer column id        |
+|"questionColumn"  |"cell-title"                     |class name of cell storing question                  |question colmn id       |
+|"answerColumn"    |"cell-Mk~d"                      |class name of cell storing answer                    |answer column id        |
 |"table"           |"Dictionary.html"                |exported .html file name                             |table id                |
 - *will be available soon, when Notion start their official API
 
